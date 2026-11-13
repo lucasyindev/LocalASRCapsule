@@ -1,0 +1,413 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#FFF7F7F8"
+    android:fillViewport="true"
+    android:fitsSystemWindows="true">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:paddingHorizontal="20dp"
+        android:paddingTop="28dp"
+        android:paddingBottom="32dp">
+
+        <!-- 极简标题 -->
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:fontFamily="sans-serif-medium"
+            android:text="本地语音识别"
+            android:textColor="#FF111111"
+            android:textSize="26sp" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="4dp"
+            android:text="左侧键单击开录，再按一下直填光标"
+            android:textColor="#FF7A7A7A"
+            android:textSize="13.5sp" />
+
+        <!-- 卡片 1：运行状态 -->
+        <LinearLayout
+            android:id="@+id/card_status"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="24dp"
+            android:background="@drawable/bg_minimal_card"
+            android:orientation="vertical"
+            android:padding="18dp">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="运行状态"
+                android:textColor="#FF8E8E93"
+                android:textSize="12sp" />
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="10dp"
+                android:gravity="center_vertical"
+                android:orientation="horizontal">
+
+                <View
+                    android:id="@+id/view_status_dot"
+                    android:layout_width="9dp"
+                    android:layout_height="9dp"
+                    android:background="@drawable/bg_minimal_pill_active" />
+
+                <LinearLayout
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="10dp"
+                    android:layout_weight="1"
+                    android:orientation="vertical">
+
+                    <TextView
+                        android:id="@+id/tv_status_title"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:fontFamily="sans-serif-medium"
+                        android:text="运行中"
+                        android:textColor="#FF111111"
+                        android:textSize="16sp" />
+
+                    <TextView
+                        android:id="@+id/tv_status_sub"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="2dp"
+                        android:text="无障碍与麦克风已就绪"
+                        android:textColor="#FF6B6B6B"
+                        android:textSize="12.5sp" />
+                </LinearLayout>
+
+                <TextView
+                    android:id="@+id/btn_status_action"
+                    android:layout_width="wrap_content"
+                    android:layout_height="34dp"
+                    android:background="@drawable/bg_minimal_pill_idle"
+                    android:clickable="true"
+                    android:focusable="true"
+                    android:fontFamily="sans-serif-medium"
+                    android:gravity="center"
+                    android:paddingHorizontal="14dp"
+                    android:text="去开启"
+                    android:textColor="#FF111111"
+                    android:textSize="12.5sp"
+                    android:visibility="gone" />
+            </LinearLayout>
+        </LinearLayout>
+
+        <!-- 卡片 2：语音模型 -->
+        <LinearLayout
+            android:id="@+id/card_model"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="14dp"
+            android:background="@drawable/bg_minimal_card"
+            android:orientation="vertical"
+            android:padding="18dp">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:gravity="center_vertical"
+                android:orientation="horizontal">
+
+                <TextView
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:text="语音模型"
+                    android:textColor="#FF8E8E93"
+                    android:textSize="12sp" />
+
+                <TextView
+                    android:id="@+id/tv_model_summary"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:fontFamily="sans-serif-medium"
+                    android:text="未安装模型"
+                    android:textColor="#FF111111"
+                    android:textSize="12.5sp" />
+            </LinearLayout>
+
+            <!-- 选项 A：INT8 轻量版 -->
+            <LinearLayout
+                android:id="@+id/row_model_int8"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="14dp"
+                android:background="@drawable/bg_minimal_row_btn"
+                android:clickable="true"
+                android:focusable="true"
+                android:gravity="center_vertical"
+                android:orientation="horizontal"
+                android:paddingHorizontal="14dp"
+                android:paddingVertical="12dp">
+
+                <LinearLayout
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:orientation="vertical">
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:fontFamily="sans-serif-medium"
+                        android:text="SenseVoice INT8 · 轻量版"
+                        android:textColor="#FF111111"
+                        android:textSize="14.5sp" />
+
+                    <TextView
+                        android:id="@+id/tv_int8_desc"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="2dp"
+                        android:text="约 228 MB · 极速省内存"
+                        android:textColor="#FF7A7A7A"
+                        android:textSize="12sp" />
+                </LinearLayout>
+
+                <TextView
+                    android:id="@+id/badge_model_int8"
+                    android:layout_width="wrap_content"
+                    android:layout_height="30dp"
+                    android:background="@drawable/bg_minimal_pill_idle"
+                    android:fontFamily="sans-serif-medium"
+                    android:gravity="center"
+                    android:paddingHorizontal="12dp"
+                    android:text="直接下载"
+                    android:textColor="#FF111111"
+                    android:textSize="12sp" />
+            </LinearLayout>
+
+            <!-- 选项 B：FP16 满血版 -->
+            <LinearLayout
+                android:id="@+id/row_model_fp16"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="8dp"
+                android:background="@drawable/bg_minimal_row_btn"
+                android:clickable="true"
+                android:focusable="true"
+                android:gravity="center_vertical"
+                android:orientation="horizontal"
+                android:paddingHorizontal="14dp"
+                android:paddingVertical="12dp">
+
+                <LinearLayout
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:orientation="vertical">
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:fontFamily="sans-serif-medium"
+                        android:text="SenseVoice FP16 · 满血版"
+                        android:textColor="#FF111111"
+                        android:textSize="14.5sp" />
+
+                    <TextView
+                        android:id="@+id/tv_fp16_desc"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="2dp"
+                        android:text="约 894 MB · 最高识别精度"
+                        android:textColor="#FF7A7A7A"
+                        android:textSize="12sp" />
+                </LinearLayout>
+
+                <TextView
+                    android:id="@+id/badge_model_fp16"
+                    android:layout_width="wrap_content"
+                    android:layout_height="30dp"
+                    android:background="@drawable/bg_minimal_pill_idle"
+                    android:fontFamily="sans-serif-medium"
+                    android:gravity="center"
+                    android:paddingHorizontal="12dp"
+                    android:text="直接下载"
+                    android:textColor="#FF111111"
+                    android:textSize="12sp" />
+            </LinearLayout>
+
+            <!-- 在线下载进度区域 -->
+            <LinearLayout
+                android:id="@+id/layout_download_progress"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="12dp"
+                android:orientation="vertical"
+                android:visibility="gone">
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:gravity="center_vertical"
+                    android:orientation="horizontal">
+
+                    <TextView
+                        android:id="@+id/tv_download_status"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:text="正在下载..."
+                        android:textColor="#FF111111"
+                        android:textSize="12.5sp" />
+
+                    <TextView
+                        android:id="@+id/btn_cancel_download"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:clickable="true"
+                        android:focusable="true"
+                        android:paddingHorizontal="6dp"
+                        android:paddingVertical="4dp"
+                        android:text="取消"
+                        android:textColor="#FFD97757"
+                        android:textSize="12.5sp" />
+                </LinearLayout>
+
+                <ProgressBar
+                    android:id="@+id/progress_download"
+                    style="?android:attr/progressBarStyleHorizontal"
+                    android:layout_width="match_parent"
+                    android:layout_height="6dp"
+                    android:layout_marginTop="6dp"
+                    android:max="100"
+                    android:progress="0"
+                    android:progressTint="#FF10A37F" />
+            </LinearLayout>
+
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="1dp"
+                android:layout_marginTop="14dp"
+                android:background="#FFF0F0F0" />
+
+            <!-- 主操作：应用内直接在线下载并安装 -->
+            <TextView
+                android:id="@+id/btn_direct_download"
+                android:layout_width="match_parent"
+                android:layout_height="42dp"
+                android:layout_marginTop="12dp"
+                android:background="@drawable/bg_minimal_primary_btn"
+                android:clickable="true"
+                android:focusable="true"
+                android:fontFamily="sans-serif-medium"
+                android:gravity="center"
+                android:text="在线直接下载并安装"
+                android:textColor="#FFFFFFFF"
+                android:textSize="13.5sp" />
+
+            <!-- 辅助操作：本地导入 & GitHub 页面 -->
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="8dp"
+                android:gravity="center_vertical"
+                android:orientation="horizontal">
+
+                <TextView
+                    android:id="@+id/btn_import_local"
+                    android:layout_width="0dp"
+                    android:layout_height="38dp"
+                    android:layout_weight="1"
+                    android:background="@drawable/bg_minimal_row_btn"
+                    android:clickable="true"
+                    android:focusable="true"
+                    android:fontFamily="sans-serif-medium"
+                    android:gravity="center"
+                    android:text="从手机文件导入"
+                    android:textColor="#FF111111"
+                    android:textSize="13sp" />
+
+                <Space
+                    android:layout_width="10dp"
+                    android:layout_height="1dp" />
+
+                <TextView
+                    android:id="@+id/btn_open_github"
+                    android:layout_width="0dp"
+                    android:layout_height="38dp"
+                    android:layout_weight="1"
+                    android:background="@drawable/bg_minimal_row_btn"
+                    android:clickable="true"
+                    android:focusable="true"
+                    android:fontFamily="sans-serif-medium"
+                    android:gravity="center"
+                    android:text="GitHub 页面 ↗"
+                    android:textColor="#FF555555"
+                    android:textSize="13sp" />
+            </LinearLayout>
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="10dp"
+                android:lineSpacingMultiplier="1.3"
+                android:text="开启 VPN 后点「在线直接下载并安装」即可自动拉取模型和词典并启用；也可导入手机里下载好的模型文件。"
+                android:textColor="#FF8E8E93"
+                android:textSize="11.5sp" />
+        </LinearLayout>
+
+        <!-- 卡片 3：震动反馈 -->
+        <LinearLayout
+            android:id="@+id/card_vibration"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="14dp"
+            android:background="@drawable/bg_minimal_card"
+            android:clickable="true"
+            android:focusable="true"
+            android:gravity="center_vertical"
+            android:orientation="horizontal"
+            android:padding="18dp">
+
+            <LinearLayout
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:orientation="vertical">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:fontFamily="sans-serif-medium"
+                    android:text="震动反馈"
+                    android:textColor="#FF111111"
+                    android:textSize="15.5sp" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="2dp"
+                    android:text="开始与结束录音时的微震提示"
+                    android:textColor="#FF7A7A7A"
+                    android:textSize="12sp" />
+            </LinearLayout>
+
+            <TextView
+                android:id="@+id/badge_vibration"
+                android:layout_width="wrap_content"
+                android:layout_height="30dp"
+                android:background="@drawable/bg_minimal_pill_active"
+                android:fontFamily="sans-serif-medium"
+                android:gravity="center"
+                android:paddingHorizontal="14dp"
+                android:text="开启"
+                android:textColor="#FFFFFFFF"
+                android:textSize="12.5sp" />
+        </LinearLayout>
+
+    </LinearLayout>
+</ScrollView>

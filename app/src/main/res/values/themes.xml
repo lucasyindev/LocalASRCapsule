@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <style name="Theme.LocalASRCapsule" parent="Theme.Material3.Light.NoActionBar">
+        <item name="android:statusBarColor">#FFF7F7F8</item>
+        <item name="android:navigationBarColor">#FFF7F7F8</item>
+        <item name="android:windowBackground">#FFF7F7F8</item>
+        <item name="android:windowLightStatusBar">true</item>
+        <item name="android:windowLightNavigationBar">true</item>
+        <item name="colorPrimary">@color/caret_terracotta</item>
+    </style>
+</resources>

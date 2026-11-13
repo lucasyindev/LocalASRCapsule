@@ -1,0 +1,62 @@
+# Gradle / Android build
+.gradle/
+.kotlin/
+build/
+**/build/
+.cxx/
+local.properties
+
+# IDE
+.idea/
+*.iml
+*.ipr
+*.iws
+.vscode/
+.DS_Store
+
+# Signing and secrets
+*.jks
+*.keystore
+keystore.properties
+signing.properties
+google-services.json
+*.pem
+*.p12
+.env
+.env.*
+!.env.example
+
+# Build outputs
+*.apk
+*.aab
+*.ap_
+*.dex
+
+# Models and native binaries (downloaded or packaged at build time, not source)
+*.onnx
+*.tflite
+*.pt
+*.pth
+*.bin
+*.gguf
+*.ggml
+*.mlmodel
+*.task
+*.so
+*.aar
+
+# Audio / recordings
+*.wav
+*.mp3
+*.m4a
+*.aac
+*.flac
+*.pcm
+*.ogg
+*.opus
+captures/
+
+# Logs and misc
+*.log
+*.hprof
+hs_err_pid*

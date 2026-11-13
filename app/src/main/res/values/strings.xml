@@ -1,0 +1,5 @@
+<resources>
+    <string name="app_name">本地语音</string>
+    <string name="accessibility_service_name">本地语音服务</string>
+    <string name="accessibility_service_description">用于监听左侧独立按键并实现纯离线语音识别与光标直接输入。</string>
+</resources>
